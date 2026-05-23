@@ -49,6 +49,10 @@ body{
 
 }
 
+#conversion-el{
+    text-align: center;
+    
+}
 #input-field{
     text-shadow:2px 2px 5px  rgba(0,0,0,0.5);
     color: #FFFFFF;
@@ -57,26 +61,25 @@ body{
     height: 51px;
     background: none;
     border: none;
-    display: inline-flex;
+    
+    /* CHANGED: Switched to flex and forced alignment */
+    display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    text-align: center; /* Horizontally centers the cursor and text */
 
     font-family: Inter;
     font-weight: 800;
-    font-style: Bold;
+    font-style: normal; /* "Bold" is not a valid font-style property value, use weight instead */
     font-size: 50px;
-    line-height: 24.39px;
     letter-spacing: 0%;
-    text-align: center;
-    
-}
-#conversion-el{
-    text-align: center;
-    
 }
 
 #input-field::placeholder{
-    font-size:18px;
-    text-align:center;
-    line-height:100%;
+    font-size: 18px;
+    text-align: center; /* Centers placeholder text horizontally */
+    opacity: 1; /* Ensures your text color/shadow shows through consistently across browsers */
+    
+    /* Fixes vertical alignment offset caused by the large 50px input font */
+    line-height: normal; 
 }
