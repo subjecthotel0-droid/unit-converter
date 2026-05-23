@@ -71,3 +71,7 @@ body{
     text-align: center;
     
 }
+
+::placeholder{
+    font-size:22px;
+}
