@@ -57,6 +57,8 @@ body{
     height: 51px;
     background: none;
     border: none;
+    display: inline-flex;
+    align-items:center;
 
     font-family: Inter;
     font-weight: 800;
@@ -74,8 +76,6 @@ body{
 
 #input-field::placeholder{
     font-size:18px;
-    text-align: center; /* Horizontally centered */
-    padding-top: 12px;  /* Equal top padding */
-    padding-bottom: 12px; /* Equal bottom padding */
-    height: auto;       /* Let padding determine the height */
+    text-align:center;
+    line-height:100%;
 }
