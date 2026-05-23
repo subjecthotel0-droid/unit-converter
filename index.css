@@ -72,6 +72,6 @@ body{
     
 }
 
-::placeholder{
+#input-field::placeholder{
     font-size:22px;
 }
