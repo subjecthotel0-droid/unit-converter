@@ -73,5 +73,6 @@ body{
 }
 
 #input-field::placeholder{
-    font-size:15px;
+    font-size:18px;
+    text-align: center;
 }
