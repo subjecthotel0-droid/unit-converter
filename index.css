@@ -1,0 +1,73 @@
+.changeTheme{
+    background: linear-gradient(#6bad8f, #3B69E1);
+    color: #000;
+    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
+
+}
+body.changeTheme #top-bar{
+    background: radial-gradient(#05668d,#78c6a3);
+}
+
+body{
+    background: linear-gradient(#18244A, #2f97c1);
+    background-size:cover ;
+    height: 100vh;
+    color: #FFFFFF;
+    background-repeat:no-repeat ;
+    text-shadow:2px 2px 5px  rgba(0,0,0,0.5);
+    font-family: Inter;
+}
+
+#error-msg{
+    height: auto;
+    width:auto;
+    background: radial-gradient(#78c6a3,#05668d);
+    margin: 0px;
+}
+
+#top-bar{
+    background: radial-gradient(#78c6a3,#05668d);
+    text-align: center;
+    width: auto;
+    height: 260px;
+    margin: 0px;
+}
+
+#title-script{
+    width: 448px;
+    height: 38px;
+    margin: auto;
+    padding: 53px 50px 0px 50px;
+
+    font-family: Inter;
+    font-weight: 800;
+    font-style: Bold;
+    font-size: 22px;
+    line-height: 38px;
+    letter-spacing: -5%;
+    text-align: center;
+
+}
+
+#input-field{
+    text-shadow:2px 2px 5px  rgba(0,0,0,0.5);
+    color: #FFFFFF;
+    margin:64px 170px 10px 170px;
+    width: 211px;
+    height: 51px;
+    background: none;
+    border: none;
+
+    font-family: Inter;
+    font-weight: 800;
+    font-style: Bold;
+    font-size: 50px;
+    line-height: 24.39px;
+    letter-spacing: 0%;
+    text-align: center;
+    
+}
+#conversion-el{
+    text-align: center;
+    
+}

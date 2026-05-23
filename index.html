@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
+        <link rel="stylesheet" href="index.css"/>
+        <title>Unit Converter</title>
+    </head>
+    <body>
+        <div id = "top-bar">
+            <div id = "theme-btn" class="far fa-moon"></div>
+            <h1 id="title-script">Metric/Imperial Unit Conversion</h1>
+            <input
+            type="text"
+            id="input-field"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            />
+            <div id="error-msg" class="error"></div>
+        </div>
+        <div id="conversion-el">
+            <div id="len-el">
+                <h3>Length (Meters/Feet)</h3>
+                <p id="len-par"> 0 m = 0.000 feet | 0 feet = 0.000 m</p>
+            </div>
+
+            <div id="vol-el">
+                <h3>Volume (Liters/Gallons)</h3>
+                <p id="vol-par"> 0 L = 0.000 gallons | 0 gallons = 0.000 L</p>
+            </div>
+
+            <div id="mass-el">
+                <h3>Mass (Kilograms/Pounds)</h3>
+                <p id="mass-par"> 0 kgs = 0.000 pounds | 0 pounds = 0.000 kgs</p>
+            </div>
+
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
