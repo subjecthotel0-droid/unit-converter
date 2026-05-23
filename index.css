@@ -54,27 +54,24 @@ body{
     
 }
 #input-field{
-    text-shadow:2px 2px 5px  rgba(0,0,0,0.5);
+    text-shadow:2px 2px 5px rgba(0,0,0,0.5);
     color: #FFFFFF;
+
     margin:64px 170px 10px 170px;
+
     width: 211px;
     height: 51px;
+    line-height: 51px;
+
     background: none;
     border: none;
-    
-    /* CHANGED: Switched to flex and forced alignment */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Horizontally centers the cursor and text */
+
+    text-align: center;
 
     font-family: Inter;
     font-weight: 800;
-    font-style: normal; /* "Bold" is not a valid font-style property value, use weight instead */
     font-size: 50px;
-    letter-spacing: 0%;
 }
-
 #input-field::placeholder{
     font-size: 18px;
     text-align: center; /* Centers placeholder text horizontally */
