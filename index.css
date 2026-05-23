@@ -74,5 +74,8 @@ body{
 
 #input-field::placeholder{
     font-size:18px;
-    text-align: center;
+    text-align: center; /* Horizontally centered */
+    padding-top: 12px;  /* Equal top padding */
+    padding-bottom: 12px; /* Equal bottom padding */
+    height: auto;       /* Let padding determine the height */
 }
