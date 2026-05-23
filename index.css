@@ -73,7 +73,7 @@ body{
     font-size: 50px;
 }
 #input-field::placeholder{
-    font-size: 18px;
+    font-size: 16px;
     text-align: center; /* Centers placeholder text horizontally */
     opacity: 1; /* Ensures your text color/shadow shows through consistently across browsers */
     
