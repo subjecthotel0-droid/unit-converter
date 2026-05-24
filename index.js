@@ -36,3 +36,14 @@ inputField.addEventListener("input", () => {
     massPar.innerHTML = `${inputVal} kgs = ${(inputVal * 2.204).toFixed(3)} pounds | ${inputVal} pounds = ${(inputVal * 0.453).toFixed(3)} kgs`;
 });
 
+$("#input-field").on("input",function(){
+    var textLength = $(this).val().length;
+    if (textLength < 20){
+        $(this).css("font-size","50px")
+    }else if (textLength < 40){
+        $(this).css("font-size","30px")
+    }else{
+        $(this).css("font-size","20px")
+    }
+})
+

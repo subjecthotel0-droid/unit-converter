@@ -66,7 +66,7 @@ body{
 
     margin:64px 170px 10px 170px;
 
-    width: 211px;
+    width: 250px;
     height: 51px;
     line-height: 51px;
 
@@ -77,13 +77,13 @@ body{
 
     font-family: Inter;
     font-weight: 800;
-    font-size: 50px;
+    font-size: 25px;
 }
 #input-field::placeholder{
-    font-size: 16px;
+    font-size: 19.5px;
     text-align: center; /* Centers placeholder text horizontally */
     opacity: 1; /* Ensures your text color/shadow shows through consistently across browsers */
     
     /* Fixes vertical alignment offset caused by the large 50px input font */
-    line-height: normal; 
+    line-height: 25px;
 }
