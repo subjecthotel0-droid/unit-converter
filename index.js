@@ -15,46 +15,35 @@ const lenPar = document.getElementById("len-par");
 const volPar = document.getElementById("vol-par");
 const massPar = document.getElementById("mass-par");
 
-// Theme Toggle
-if(themeBtn) {
-    themeBtn.onclick = () => {
-        themeBtn.classList.toggle("fa-sun");
-        document.body.classList.toggle("changeTheme");
-    };
-}
+themeBtn.onclick = () => {
+    themeBtn.classList.toggle("fa-sun");
+    document.body.classList.toggle("changeTheme");
+};
 
-// Input Handling
-if(inputField) {
-    inputField.addEventListener("input", () => {
-        const value = inputField.value;
+inputField.addEventListener("input", () => {
+    const value = inputField.value;
+    const valid = /^\d*$/.test(value);
 
-        // 1. Validation: Numbers only
-        const valid = /^\d*$/.test(value);
-        if (!valid) {
-            errorMsg.textContent = "Please enter numbers only.";
-            errorMsg.style.display = "block";
-            return; 
-        }
+    if (!valid) {
+        errorMsg.textContent = "Please enter numbers only.";
+        return;
+    }
 
-        errorMsg.textContent = "";
-        errorMsg.style.display = "none";
+    errorMsg.textContent = "";
+    const inputVal = Number(value);
+    lenPar.innerHTML = `${inputVal} m = ${(inputVal * 3.281).toFixed(3)} feet | ${inputVal} feet = ${(inputVal * 0.305).toFixed(3)} m`;
+    volPar.innerHTML = `${inputVal} L = ${(inputVal * 0.264).toFixed(3)} gallons | ${inputVal} gallons = ${(inputVal * 3.785).toFixed(3)} L`;
+    massPar.innerHTML = `${inputVal} kgs = ${(inputVal * 2.204).toFixed(3)} pounds | ${inputVal} pounds = ${(inputVal * 0.453).toFixed(3)} kgs`;
+});
 
-        // 2. Calculations
-        // Handle empty input gracefully
-        if (value === "") {
-            lenPar.innerHTML = "";
-            volPar.innerHTML = "";
-            massPar.innerHTML = "";
-            return;
-        }
+$("#input-field").on("input",function(){
+    var textLength = $(this).val().length;
+    if (textLength < 20){
+        $(this).css("font-size","50px")
+    }else if (textLength < 40){
+        $(this).css("font-size","30px")
+    }else{
+        $(this).css("font-size","20px")
+    }
+})
 
-        const inputVal = Number(value);
-        
-        lenPar.innerHTML = `${inputVal} m = ${(inputVal * 3.281).toFixed(3)} feet | ${inputVal} feet = ${(inputVal * 0.305).toFixed(3)} m`;
-        volPar.innerHTML = `${inputVal} L = ${(inputVal * 0.264).toFixed(3)} gallons | ${inputVal} gallons = ${(inputVal * 3.785).toFixed(3)} L`;
-        massPar.innerHTML = `${inputVal} kgs = ${(inputVal * 2.204).toFixed(3)} pounds | ${inputVal} pounds = ${(inputVal * 0.453).toFixed(3)} kgs`;
-    });
-}
-
-// REMOVED: adjustFontSize function and event listeners.
-// The CSS 'clamp()' function now handles responsive font sizing smoothly.   
