@@ -1,16 +1,30 @@
-/* Ensure HTML/Body take full screen */
+/* 1. GLOBAL RESET & FLEX CENTERING */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh; /* Ensures full screen height */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-/* 
-   Dynamic Theme Classes 
-   (No changes needed here, colors remain the same)
-*/
+body {
+    background: linear-gradient(#18244A, #2f97c1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-family: 'Inter', sans-serif;
+    
+    /* CRITICAL: Flexbox centers everything automatically */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; /* Adjusts vertical start position */
+    padding-top: 20px; /* Small top padding instead of fixed margins */
+    box-sizing: border-box;
+}
+
+/* 2. THEME TOGGLES (Unchanged logic, just safe syntax) */
 .changeTheme {
     background: linear-gradient(#6bad8f, #3B69E1);
     color: #000;
@@ -30,74 +44,41 @@ body.changeTheme #top-bar {
     background: radial-gradient(#05668d, #78c6a3);
 }
 
-/* 
-   Base Body Styles 
-   Using relative units for height and font-family
-*/
-body {
-    background: linear-gradient(#18244A, #2f97c1);
-    background-size: cover;
-    height: 100vh; /* Always full viewport height */
-    color: #FFFFFF;
-    background-repeat: no-repeat;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers content horizontally */
-}
-
-/* 
-   Error Message 
-   Max-width ensures it doesn't stretch too far on large screens 
-*/
-#error-msg {
-    height: auto;
-    width: 90%; /* Responsive width */
-    max-width: 600px; /* Cap width on desktop */
-    background: radial-gradient(#78c6a3, #05668d);
-    margin: 10px 0; /* Spacing instead of 0px */
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-/* 
-   Top Bar 
-   Height scales with viewport (vh), width is fluid
-*/
+/* 3. TOP BAR - Fluid Height */
 #top-bar {
     background: radial-gradient(#78c6a3, #05668d);
     text-align: center;
-    width: 100%;
-    height: 25vh; /* Scales with screen height (was 260px) */
-    max-height: 300px; /* Cap max height */
-    min-height: 150px; /* Cap min height */
+    width: 100%; /* Full width */
+    height: auto; /* Let content decide height */
+    min-height: 150px; /* Minimum height so it doesn't collapse */
+    max-height: 30vh; /* Max height relative to screen */
     margin: 0;
+    padding: 20px 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* 
-   Title Script 
-   Font size scales using clamp(). 
-   Width is percentage-based instead of fixed 448px.
-*/
+/* 4. TITLE - Fluid Width & Font */
 #title-script {
-    width: 90%;
+    width: 90%; /* Takes 90% of screen, max 500px */
     max-width: 500px;
-    /* Font scales between 1.2rem and 2.5rem based on viewport width */
-    font-size: clamp(1.2rem, 5vw, 2.5rem); 
-    font-weight: 800;
-    font-style: normal; /* 'Bold' is not a valid font-style */
-    line-height: 1.2;
-    letter-spacing: -0.05em; /* Relative letter spacing */
-    text-align: center;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
+    
+    font-weight: 800;
+    font-style: normal;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    
+    /* Fluid Font: Scales between 20px and 40px */
+    font-size: clamp(1.25rem, 5vw, 2.5rem); 
 }
 
+/* 5. INPUT FIELD - Centered & Fluid */
 #conversion-el {
     text-align: center;
     width: 100%;
@@ -106,60 +87,61 @@ body {
     align-items: center;
 }
 
-/* 
-   Input Field 
-   The most critical change: 
-   - Width uses clamp() to scale between 200px and 400px
-   - Margins are auto (centered) instead of fixed 170px
-   - Font size scales dynamically
-*/
 #input-field {
     text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     color: #FFFFFF;
     
-    /* Center horizontally with auto margins */
+    /* CRITICAL FIX: Remove fixed 170px margins. Use auto to center. */
     margin: 40px auto 10px auto; 
     
-    /* Width scales fluidly: min 200px, preferred 50%, max 400px */
-    width: clamp(200px, 50vw, 400px);
+    /* Fluid Width: Min 200px, Max 90% of screen, Cap at 400px */
+    width: clamp(200px, 80vw, 400px);
     
-    height: 10vh; /* Scales with height */
-    max-height: 80px;
-    min-height: 50px;
-    
-    line-height: normal; /* Let browser handle line-height for centering */
+    height: 60px; /* Slightly taller for touch targets */
+    line-height: 60px;
     
     background: none;
     border: none;
-    border-bottom: 2px solid rgba(255,255,255,0.3); /* Optional: visual guide */
+    border-bottom: 2px solid rgba(255,255,255,0.3); /* Visual guide */
     
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-weight: 800;
     
-    /* Font scales between 1.5rem and 3rem */
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    /* Fluid Font: Scales between 24px and 40px */
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     
     outline: none;
 }
 
 #input-field::placeholder {
-    /* Font scales slightly smaller than input text */
-    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    font-size: clamp(1rem, 3vw, 1.5rem);
     text-align: center;
     opacity: 0.8;
-    color: inherit; /* Inherits color from input-field */
+    color: inherit;
+    line-height: normal;
 }
 
-/* 
-   Result Paragraphs (len-par, vol-par, massPar)
-   Ensure they scale and wrap text on small screens
-*/
+/* 6. ERROR MSG & RESULTS */
+#error-msg {
+    width: 90%;
+    max-width: 400px;
+    min-height: 20px;
+    background: radial-gradient(#78c6a3, #05668d);
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
 #len-par, #vol-par, #mass-par {
     width: 90%;
-    max-width: 800px;
+    max-width: 600px;
     text-align: center;
     margin: 10px auto;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.5;
+    word-wrap: break-word; /* Prevents long numbers from overflowing */
 }   
