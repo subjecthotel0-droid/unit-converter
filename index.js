@@ -23,32 +23,21 @@ if(themeBtn) {
     };
 }
 
-// Input Handling (Consolidated Vanilla JS)
+// Input Handling
 if(inputField) {
     inputField.addEventListener("input", () => {
         const value = inputField.value;
-        const textLength = value.length;
 
         // 1. Validation: Numbers only
         const valid = /^\d*$/.test(value);
         if (!valid) {
             errorMsg.textContent = "Please enter numbers only.";
-            // Optional: Stop processing if invalid
             return; 
         }
 
         errorMsg.textContent = "";
 
-        // 2. Dynamic Font Sizing (Replaces jQuery block)
-        if (textLength < 20) {
-            inputField.style.fontSize = "50px";
-        } else if (textLength < 40) {
-            inputField.style.fontSize = "30px";
-        } else {
-            inputField.style.fontSize = "20px";
-        }
-
-        // 3. Calculations
+        // 2. Calculations
         // Handle empty input gracefully
         if (value === "") {
             lenPar.innerHTML = "";
@@ -63,21 +52,7 @@ if(inputField) {
         volPar.innerHTML = `${inputVal} L = ${(inputVal * 0.264).toFixed(3)} gallons | ${inputVal} gallons = ${(inputVal * 3.785).toFixed(3)} L`;
         massPar.innerHTML = `${inputVal} kgs = ${(inputVal * 2.204).toFixed(3)} pounds | ${inputVal} pounds = ${(inputVal * 0.453).toFixed(3)} kgs`;
     });
-    
-}
-function adjustFontSize() {
-    const width = window.innerWidth;
-    const inputField = document.getElementById("input-field");
-    
-    if (width < 600) {
-        inputField.style.fontSize = "10vw"; // Very large on mobile
-    } else if (width < 1000) {
-        inputField.style.fontSize = "5vw";
-    } else {
-        inputField.style.fontSize = "3rem"; // Fixed on desktop
-    }
 }
 
-// Run on load and resize
-window.addEventListener('resize', adjustFontSize);
-window.addEventListener('load', adjustFontSize);   
+// REMOVED: adjustFontSize function and event listeners.
+// The CSS 'clamp()' function now handles responsive font sizing smoothly.   
