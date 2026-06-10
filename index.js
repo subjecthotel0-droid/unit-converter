@@ -32,10 +32,12 @@ if(inputField) {
         const valid = /^\d*$/.test(value);
         if (!valid) {
             errorMsg.textContent = "Please enter numbers only.";
+            errorMsg.style.display = "block";
             return; 
         }
 
         errorMsg.textContent = "";
+        errorMsg.style.display = "none";
 
         // 2. Calculations
         // Handle empty input gracefully
