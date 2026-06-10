@@ -1,89 +1,165 @@
-.changeTheme{
+/* Ensure HTML/Body take full screen */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* 
+   Dynamic Theme Classes 
+   (No changes needed here, colors remain the same)
+*/
+.changeTheme {
     background: linear-gradient(#6bad8f, #3B69E1);
     color: #000;
-    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
-
-}
-body.changeTheme #input-field{
-    color: #000;
-    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
-}
-body.changeTheme #input-field::placeholder{
-    color: #000;
-}
-body.changeTheme #top-bar{
-    background: radial-gradient(#05668d,#78c6a3);
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
 
-body{
+body.changeTheme #input-field {
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+body.changeTheme #input-field::placeholder {
+    color: #000;
+}
+
+body.changeTheme #top-bar {
+    background: radial-gradient(#05668d, #78c6a3);
+}
+
+/* 
+   Base Body Styles 
+   Using relative units for height and font-family
+*/
+body {
     background: linear-gradient(#18244A, #2f97c1);
-    background-size:cover ;
-    height: 100vh;
+    background-size: cover;
+    height: 100vh; /* Always full viewport height */
     color: #FFFFFF;
-    background-repeat:no-repeat ;
-    text-shadow:2px 2px 5px  rgba(0,0,0,0.5);
-    font-family: Inter;
+    background-repeat: no-repeat;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
 }
 
-#error-msg{
+/* 
+   Error Message 
+   Max-width ensures it doesn't stretch too far on large screens 
+*/
+#error-msg {
     height: auto;
-    width:auto;
-    background: radial-gradient(#78c6a3,#05668d);
-    margin: 0px;
-}
-
-#top-bar{
-    background: radial-gradient(#78c6a3,#05668d);
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Cap width on desktop */
+    background: radial-gradient(#78c6a3, #05668d);
+    margin: 10px 0; /* Spacing instead of 0px */
     text-align: center;
-    width: auto;
-    height: 260px;
-    margin: 0px;
+    padding: 10px;
+    border-radius: 8px;
 }
 
-#title-script{
-    width: 448px;
-    height: 38px;
-    margin: auto;
-    padding: 53px 50px 0px 50px;
+/* 
+   Top Bar 
+   Height scales with viewport (vh), width is fluid
+*/
+#top-bar {
+    background: radial-gradient(#78c6a3, #05668d);
+    text-align: center;
+    width: 100%;
+    height: 25vh; /* Scales with screen height (was 260px) */
+    max-height: 300px; /* Cap max height */
+    min-height: 150px; /* Cap min height */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    font-family: Inter;
+/* 
+   Title Script 
+   Font size scales using clamp(). 
+   Width is percentage-based instead of fixed 448px.
+*/
+#title-script {
+    width: 90%;
+    max-width: 500px;
+    /* Font scales between 1.2rem and 2.5rem based on viewport width */
+    font-size: clamp(1.2rem, 5vw, 2.5rem); 
     font-weight: 800;
-    font-style: Bold;
-    font-size: 22px;
-    line-height: 38px;
-    letter-spacing: -5%;
+    font-style: normal; /* 'Bold' is not a valid font-style */
+    line-height: 1.2;
+    letter-spacing: -0.05em; /* Relative letter spacing */
     text-align: center;
-
+    margin: 0 auto;
+    padding: 20px;
 }
 
-#conversion-el{
+#conversion-el {
     text-align: center;
-    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#input-field{
-    text-shadow:2px 2px 5px rgba(0,0,0,0.5);
+
+/* 
+   Input Field 
+   The most critical change: 
+   - Width uses clamp() to scale between 200px and 400px
+   - Margins are auto (centered) instead of fixed 170px
+   - Font size scales dynamically
+*/
+#input-field {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     color: #FFFFFF;
-
-    margin:64px 170px 10px 170px;
-
-    width: 250px;
-    height: 51px;
-    line-height: 51px;
-
+    
+    /* Center horizontally with auto margins */
+    margin: 40px auto 10px auto; 
+    
+    /* Width scales fluidly: min 200px, preferred 50%, max 400px */
+    width: clamp(200px, 50vw, 400px);
+    
+    height: 10vh; /* Scales with height */
+    max-height: 80px;
+    min-height: 50px;
+    
+    line-height: normal; /* Let browser handle line-height for centering */
+    
     background: none;
     border: none;
-
-    text-align: center;
-
-    font-family: Inter;
-    font-weight: 800;
-    font-size: 25px;
-}
-#input-field::placeholder{
-    font-size: 19.5px;
-    text-align: center; /* Centers placeholder text horizontally */
-    opacity: 1; /* Ensures your text color/shadow shows through consistently across browsers */
+    border-bottom: 2px solid rgba(255,255,255,0.3); /* Optional: visual guide */
     
-    /* Fixes vertical alignment offset caused by the large 50px input font */
-    line-height: 25px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    
+    /* Font scales between 1.5rem and 3rem */
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    
+    outline: none;
 }
+
+#input-field::placeholder {
+    /* Font scales slightly smaller than input text */
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    text-align: center;
+    opacity: 0.8;
+    color: inherit; /* Inherits color from input-field */
+}
+
+/* 
+   Result Paragraphs (len-par, vol-par, massPar)
+   Ensure they scale and wrap text on small screens
+*/
+#len-par, #vol-par, #mass-par {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    margin: 10px auto;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    line-height: 1.5;
+}   
