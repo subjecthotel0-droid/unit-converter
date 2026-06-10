@@ -1,147 +1,89 @@
-/* 1. GLOBAL RESET & FLEX CENTERING */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh; /* Ensures full screen height */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-}
-
-body {
-    background: linear-gradient(#18244A, #2f97c1);
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #FFFFFF;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    font-family: 'Inter', sans-serif;
-    
-    /* CRITICAL: Flexbox centers everything automatically */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; /* Adjusts vertical start position */
-    padding-top: 20px; /* Small top padding instead of fixed margins */
-    box-sizing: border-box;
-}
-
-/* 2. THEME TOGGLES (Unchanged logic, just safe syntax) */
-.changeTheme {
+.changeTheme{
     background: linear-gradient(#6bad8f, #3B69E1);
     color: #000;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-}
+    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
 
-body.changeTheme #input-field {
+}
+body.changeTheme #input-field{
     color: #000;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
 }
-
-body.changeTheme #input-field::placeholder {
+body.changeTheme #input-field::placeholder{
     color: #000;
 }
-
-body.changeTheme #top-bar {
-    background: radial-gradient(#05668d, #78c6a3);
+body.changeTheme #top-bar{
+    background: radial-gradient(#05668d,#78c6a3);
 }
 
-/* 3. TOP BAR - Fluid Height */
-#top-bar {
-    background: radial-gradient(#78c6a3, #05668d);
-    text-align: center;
-    width: 100%; /* Full width */
-    height: auto; /* Let content decide height */
-    min-height: 150px; /* Minimum height so it doesn't collapse */
-    max-height: 30vh; /* Max height relative to screen */
-    margin: 0;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* 4. TITLE - Fluid Width & Font */
-#title-script {
-    width: 90%; /* Takes 90% of screen, max 500px */
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 10px;
-    
-    font-weight: 800;
-    font-style: normal;
-    text-align: center;
-    line-height: 1.2;
-    letter-spacing: -0.05em;
-    
-    /* Fluid Font: Scales between 20px and 40px */
-    font-size: clamp(1.25rem, 5vw, 2.5rem); 
-}
-
-/* 5. INPUT FIELD - Centered & Fluid */
-#conversion-el {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#input-field {
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+body{
+    background: linear-gradient(#18244A, #2f97c1);
+    background-size:cover ;
+    height: 100vh;
     color: #FFFFFF;
+    background-repeat:no-repeat ;
+    text-shadow:2px 2px 5px  rgba(0,0,0,0.5);
+    font-family: Inter;
+}
+
+#error-msg{
+    height: auto;
+    width:auto;
+    background: radial-gradient(#78c6a3,#05668d);
+    margin: 0px;
+}
+
+#top-bar{
+    background: radial-gradient(#78c6a3,#05668d);
+    text-align: center;
+    width: auto;
+    height: 260px;
+    margin: 0px;
+}
+
+#title-script{
+    width: 448px;
+    height: 38px;
+    margin: auto;
+    padding: 53px 50px 0px 50px;
+
+    font-family: Inter;
+    font-weight: 800;
+    font-style: Bold;
+    font-size: 22px;
+    line-height: 38px;
+    letter-spacing: -5%;
+    text-align: center;
+
+}
+
+#conversion-el{
+    text-align: center;
     
-    /* CRITICAL FIX: Remove fixed 170px margins. Use auto to center. */
-    margin: 40px auto 10px auto; 
-    
-    /* Fluid Width: Min 200px, Max 90% of screen, Cap at 400px */
-    width: clamp(200px, 80vw, 400px);
-    
-    height: 60px; /* Slightly taller for touch targets */
-    line-height: 60px;
-    
+}
+#input-field{
+    text-shadow:2px 2px 5px rgba(0,0,0,0.5);
+    color: #FFFFFF;
+
+    margin:64px 170px 10px 170px;
+
+    width: 250px;
+    height: 51px;
+    line-height: 51px;
+
     background: none;
     border: none;
-    
+
     text-align: center;
-    font-family: 'Inter', sans-serif;
+
+    font-family: Inter;
     font-weight: 800;
+    font-size: 25px;
+}
+#input-field::placeholder{
+    font-size: 19.5px;
+    text-align: center; /* Centers placeholder text horizontally */
+    opacity: 1; /* Ensures your text color/shadow shows through consistently across browsers */
     
-    /* Fluid Font: Scales between 24px and 40px */
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    
-    outline: none;
+    /* Fixes vertical alignment offset caused by the large 50px input font */
+    line-height: 25px;
 }
-
-#input-field::placeholder {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    text-align: center;
-    opacity: 0.8;
-    color: inherit;
-    line-height: normal;
-}
-
-/* 6. ERROR MSG & RESULTS */
-#error-msg {
-    width: 90%;
-    max-width: 400px;
-    min-height: 20px;
-    background: radial-gradient(#78c6a3, #05668d);
-    margin: 10px auto;
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    box-sizing: border-box;
-    display: none;
-}
-
-#len-par, #vol-par, #mass-par {
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    margin: 10px auto;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    line-height: 1.5;
-    word-wrap: break-word; /* Prevents long numbers from overflowing */
-}   
