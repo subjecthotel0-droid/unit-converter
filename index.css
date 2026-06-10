@@ -102,7 +102,6 @@ body.changeTheme #top-bar {
     
     background: none;
     border: none;
-    border-bottom: 2px solid rgba(255,255,255,0.3); /* Visual guide */
     
     text-align: center;
     font-family: 'Inter', sans-serif;
@@ -134,6 +133,7 @@ body.changeTheme #top-bar {
     border-radius: 8px;
     font-size: 0.9rem;
     box-sizing: border-box;
+    display: none;
 }
 
 #len-par, #vol-par, #mass-par {
